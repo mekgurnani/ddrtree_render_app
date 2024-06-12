@@ -14,6 +14,7 @@ from plotly.subplots import make_subplots
 import pandas as pd
 import dash
 from dash import dcc, html, Input, Output
+import gc
 
 # Load model specs
 
@@ -62,6 +63,10 @@ reshaped_decoded_ecgs = [array[np.newaxis, ...] for array in decoded_ecgs_array]
 
 decoded_ecgs_array_12L = [leads8to12(x) for x in reshaped_decoded_ecgs]
 # print(len(decoded_ecgs_array_12L))
+
+del decoded_ecgs_array
+del reshaped_decoded_ecgs
+gc.collect()
 
 # Code to visualise ecgs
 
@@ -352,6 +357,8 @@ def update_hover_plot(hoverData):
     return fig_plotly
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8052, debug=True)
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(host='0.0.0.0', port=port)
+
 
 
