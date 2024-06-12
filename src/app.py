@@ -18,11 +18,11 @@ from dash import dcc, html, Input, Output
 # Load model specs
 
 # Define the directory path
-model_dir = Path('vae')
+# model_dir = Path('vae')
 
 # Load Model Information
-MODEL_INFO = json.load(open(model_dir / 'MODEL_INFO.json'))
-i_factors = json.load(open(model_dir / 'val_i_factors.json'))
+MODEL_INFO = json.load(open('MODEL_INFO.json'))
+i_factors = json.load(open('val_i_factors.json'))
 i_factor_ids = [f'{i + 1}' for i in i_factors['indices']]
 
 # Loading ecg data
