@@ -1,0 +1,47 @@
+{
+    "Encoder": {
+        "Model Name": "simple_cnn",
+        "Input Shape": [
+            512,
+            8
+        ],
+        "Sampling Rate": 400,
+        "Output Units": 51,
+        "Lead Names": [
+            "I",
+            "II",
+            "V1",
+            "V2",
+            "V3",
+            "V4",
+            "V5",
+            "V6"
+        ],
+        "Median Beat": true
+    },
+    "Decoder": {
+        "Model Name": "simple_cnn",
+        "Input Units": 51,
+        "Sampling Rate": 400,
+        "Output Shape": [
+            512,
+            8
+        ],
+        "Lead Names": [
+            "I",
+            "II",
+            "V1",
+            "V2",
+            "V3",
+            "V4",
+            "V5",
+            "V6"
+        ],
+        "Median Beat": true
+    },
+    "Reconstruction Loss": "mae",
+    "Gamma": 10,
+    "Capacity": 0.0,
+    "Capacity Growth Rate": 0.0001,
+    "Capacity Max": 200.0
+}
